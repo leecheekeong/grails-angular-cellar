@@ -1,0 +1,6 @@
+<ul>
+	<li><input ng-model="search" placeholder="Search"></li>
+    <li ng:repeat="wine in wines | filter:search">
+	<a href="" ng-click="selectWine(wine.id)">{{ wine.name }} {{ wine.year }}</a>
+    </li>
+</ul>

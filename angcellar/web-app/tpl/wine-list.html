@@ -1,0 +1,6 @@
+<ul>
+	<li><input ng-model="search" placeholder="Search"></li>
+	<li ng:repeat="wine in wines | filter:search">
+        <a href='#/wines/{{ wine.id }}'>{{ wine.name }}</a>
+    </li>
+</ul>

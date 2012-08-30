@@ -1,0 +1,14 @@
+<i>Click on any line to select the wine</i>
+<table>
+<tr>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Year</th>
+	<th>Country</th>
+	<th>Region</th>
+</tr>
+<tr ng:repeat="wine in wines" ng:click="selectWine(wine.id)">
+<td>{{ wine.id }}</td><td>{{ wine.name }}</td><td>{{ wine.year }}</td><td>{{ wine.country }}</td><td>{{ wine.region }}</td>
+</tr>
+</table>
+

@@ -1,0 +1,44 @@
+<div ng-show="errors" disabled>
+Errors:
+<ul>
+	<li ng:repeat="err in errors">
+	{{ err }}
+	</li>
+</ul>
+</div>
+
+<form name="myForm">
+<div class="form-left-col">
+    <label>Id:</label>
+    <input name="id" ng-model="wine.id" type="text" value="{{ wine.id }}" disabled />
+
+	<div class="control-group" ng-class="{error: myForm.name.$invalid}">
+	<label>Name</label>
+	<input type="text" name="name" ng-model="wine.name" required><span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
+	</div>
+
+    <label>Grapes:</label>
+    <input type="text" ng-model="wine.grapes" name="wine.grapes" />
+
+    <label>Country:</label>
+    <input type="text" ng-model="wine.country" name="wine.country" />
+
+    <label>Region:</label>
+    <input type="text" ng-model="wine.region" name="wine.region" />
+
+    <label>Year:</label>
+    <input type="text" ng-model="wine.year" name="wine.year" />
+
+	<button ng-click="saveWine()" ng-disabled="myForm.$invalid" class="btn btn-primary">Save</button>
+	<button ng-click="deleteWine()" ng-show="wine.id" class="btn btn-danger">Delete</button>
+
+</div>
+
+<div class="form-right-col">
+	<label>Picture</label>
+    <input type="text" ng-model="wine.picture" name="wine.picture" /><br/>
+	<img width="250" height="300" src="pics/{{ wine.picture }}" onerror="this.src='pics/generic.jpg'"/>
+	<label>Notes:</label>
+    <textarea ng-model="wine.description" name="wine.description">{{ wine.description }}</textarea>
+</div>
+</form>

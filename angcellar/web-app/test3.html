@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html ng-app="myapp">
+<head>
+<title>Angular Cellar</title>
+
+<script src="js/angular-1.0.1.js" ng:autobind></script>
+<script src="js/angular-resource.js"></script>
+<script src="js/app3.js"></script>
+<link rel="stylesheet" href="css/styles.css" />
+<style type="text/css" media="screen">
+table {
+	width:100%;
+	border-collapse:collapse;
+	border:2px solid #303030;
+}
+
+table td {
+ border:1px solid #303030;
+}
+</style>
+</head>
+
+<body ng-controller="WineCtrl">
+
+<div id="header">
+    Angular Cellar
+    <button ng:click="addWine()">New Wine</button>
+    <button ng:click="reload()">Reload List</button>
+</div>
+
+<div ng-show="message" disabled>
+Message: {{ message }}
+<br/><br/>
+</div>
+<ng:include src="tpl"></ng:include>
+
+</body>
+</html>
