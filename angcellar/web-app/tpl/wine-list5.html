@@ -1,0 +1,28 @@
+<i>Click on any line to select the wine</i>
+<table>
+<tr ng-form="searchForm" >
+<td><input type="text" name="id" ng-model="query.id" style="width:99%;" /></td>
+<td><input type="text" name="name" ng-model="query.name" style="width:99%;" /></td>
+<td><input type="text" name="year" ng-model="query.year" style="width:99%;" /></td>
+<td><input type="text" name="country" ng-model="query.country" style="width:99%;" /></td>
+<td><input type="text" name="region" ng-model="query.region" style="width:99%;" /></td>
+<td></td>
+</tr>
+<tr style="background:#eeeeee">
+	<th ng:click="sortHeader('id')">ID</th>
+	<th ng:click="sortHeader('name')">Name</th>
+	<th ng:click="sortHeader('year')">Year</th>
+	<th ng:click="sortHeader('country')">Country</th>
+	<th ng:click="sortHeader('region')">Region</th>
+	<th>Del</th>
+</tr>
+<tr ng:repeat="wine in wines | filter:myFilter | orderBy:mySort" ng:click="selectWine(wine.id)" ng-form="myForm" >
+<td>{{ wine.id }}</td>
+<td><input type="text" name="name" ng-model="wine.name" required style="width:99%;" ng-change="setDirty($index)"></td>
+<td><input type="text" name="year" ng-model="wine.year" style="width:99%;" ng-change="setDirty($index)"></td>
+<td><input type="text" name="country" ng-model="wine.country" style="width:99%;" ng-change="setDirty($index)"></td>
+<td><input type="text" name="region" ng-model="wine.region" style="width:99%;" ng-change="setDirty($index)"></td>
+<td><input type="checkbox" name="_deleted" ng-model="wine._deleted"></td>
+</tr>
+</table>
+
